@@ -1,0 +1,31 @@
+<ion-view title="Consulta Tu Médico" id="page1" class=" ">
+    <ion-content class="has-header">
+        <div class="padding">
+            <form id="consultaTuMDico-form1" class="list">
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Fulanito Pérez" ng-model="consulta.formulario.medicoName">
+                </label>
+            </form>
+            <button id="consultaTuMDico-button1" class=" button button-positive  button-block icon-right ion-search"
+            ng-click="consulta.buscarMedicos()" ng-disabled="consulta.loadingData">Buscar</button>
+        </div>
+        <div class="list" ng-show="consulta.dataFromServer.length > 0">
+
+            <div class="item item-divider">
+                Resultados de la búsqueda
+            </div>
+
+            <div class="item item-avatar" ng-repeat="item in consulta.dataFromServer">
+                <img src="./img/image.png">
+                <h2>{{item.nombre}}</h2>
+                <p>
+                    {{item.carrera}},
+                    <br>
+                    {{item.universidad}}
+                </p>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>
